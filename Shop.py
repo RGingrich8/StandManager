@@ -23,7 +23,7 @@ class Shop:
 		letter = player_in[0].upper()
 		amount = player_in[1:]
 		#CHECK
-		print(cost_calculation(letter, amount))
+		print(self.cost_calculation(letter, float(amount)))
 		#NOW SUBTRACT THIS FROM THE USER AMOUNT IN MAIN
 
 	def cost_calculation(self, letter, amount):
