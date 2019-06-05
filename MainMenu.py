@@ -4,7 +4,12 @@ class MainMenu:
 
     def menu(self):
         print("It is day " + str(self.day_number))
+        self.day_number += 1
     
-    def day():
+
+    def get_day(self):
+    	return self.day_number
+
+    def day(self):
         pass
     

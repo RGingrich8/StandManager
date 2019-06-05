@@ -26,6 +26,10 @@ def main(): #Run everything in order
     while game_running:
         print("You are currently managing " + stand_name)
         run_main.menu()
+
+        if (run_main.get_day() == 31): #Ends at 30
+            #Outro here
+            game_running = False
     
     
 main() #Run
