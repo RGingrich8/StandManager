@@ -1,5 +1,5 @@
 class Customer:
-  def __init__(self) #ingredient list
+  def __init__(self) 
     self.upper1 = 15
     self.lower1 = 35
     self.weather = random.randint(-10, 35)
@@ -20,4 +20,9 @@ class Customer:
   def set_num_people(self, num_people): #Weather changes the upper/lower bounds of the number of the pople
     self.upper1 += self.weather
     self.lower1 += self.weather
+    
+  def prices(self, scoops, cones, fruits, sprinkles):
+    self.upper2 += scoops + cones + fruits + sprinkles
+    self.lower2 += scoops + cones + fruits + sprinkles
+    return self.upper2, self.lower2
     
