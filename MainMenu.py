@@ -1,7 +1,7 @@
 class MainMenu:  
     def __init__(self, day_number): #Constructor
         self.day_number = day_number
-        self.options = ["B - Buy Supplies", "S - Set Recipe and Prices", "V - View Career", "Q - Quit Game", "A - Advance to Day"]
+        self.options = ["A - Advance to Day", "B - Buy Supplies", "S - Set Recipe and Prices", "V - View Career", "Q - Quit Game"]
         self.commands = ["B", "S", "V", "A", "Q"]
 
 

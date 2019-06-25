@@ -13,20 +13,31 @@ class Shop:
 				my_print = str(self.price_list[x]) + "0" #Add an extra 0 (formatting)
 			else:
 				my_print = str(self.price_list[x])
-			print(self.names[x] + " at a cost of $" + my_print + " per unit")
+			print(self.names[x] + " at a cost of $" + my_print + " per unit. You own ")
 
 
 	def buy(self):
-		print("\nIn order to buy items, enter the first letter of that item followed directly by the amount you would like.\nExample: c200 would be 200 Cones, s50 would be 50 Sprinkles")
-		player_in = str(input("Enter what you would like: "))
-		#ADD A CHECK FOR VALID NUMBER + LETTER HERE, AND DO A COST CALCULATION
-		letter = player_in[0].upper()
-		amount = player_in[1:]
-		#CHECK
-		print(self.cost_calculation(letter, float(amount)))
-		#NOW SUBTRACT THIS FROM THE USER AMOUNT IN MAIN
+		leave_shop = False #Keep the shop open until the user would like to leave
+		while not leave_shop:
+			print("\n\n>>>Items to be purchased<<<")
+			self.print_prices()
+			print("\nIn order to buy items, enter the first letter of that item followed directly by the amount you would like.\nExample: c200 would be 200 cones, s50 would be 50 sprinkles. Use 'b' to leave the shop.")
+			player_in = str(input("Enter what you would like: "))
+			while (player_in == ""):
+				player_in = str(input("Invalid format: "))
+			try: #Check formatting
+				letter = player_in[0].upper()
+				amount = player_in[1:]
+				if (letter == "B"): #Leave the shop
+					leave_shop = True #End the loop
+				else:
+					print(self.cost_calculation(letter, float(amount)))
+					#THEN DO ALL INVENTORY AND COST CALCS HERE
+			except ValueError:
+				print("\nInvalid format\n")
 
-	def cost_calculation(self, letter, amount):
+
+	def cost_calculation(self, letter, amount): #Calculate the cost of the purchase
 		if (letter == "I"):
 			cost = self.ice_cream * amount
 		elif (letter == "C"):
@@ -36,3 +47,14 @@ class Shop:
 		elif (letter == "S"):
 			cost = self.sprinkles * amount
 		return cost
+
+'''
+	def numCheck(text): #Checks to see if number is entered
+	userNum = input(text)
+	try:
+		userNum = abs(int(userNum))
+	except ValueError:
+		print("Please enter a number.")
+		userNum = numCheck(text)
+	return userNum
+'''

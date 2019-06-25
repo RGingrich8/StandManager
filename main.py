@@ -7,8 +7,13 @@ the_shop = Shop(1.00, 0.75, 0.30, 0.10) #Initialize shop costs
 
 
 def intro(): #Get player name and stand name
+    #ADD INTRO MESSAGE HERE
     p_n = str(input("What is your name? "))
-    s_n = str(input("What is the name of your stand? "))
+    while (p_n == ""): #Enter valid name
+        p_n = str(input("Please enter your name: "))
+    s_n = str(input("What will you name your stand? "))
+    while (s_n == ""): #Enter valid name
+        s_n = str(input("Please name your stand: "))
     return p_n, s_n
 
 
@@ -21,8 +26,6 @@ def main(): #Run everything in order
         
         action_taken = run_main.menu()
         if (action_taken == "B"): #Buy
-            print("\n\n>>>Items to be purchased<<<")
-            the_shop.print_prices()
             the_shop.buy()
         elif (action_taken == "S"): #Set recipe
             pass
