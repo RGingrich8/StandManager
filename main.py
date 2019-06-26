@@ -1,13 +1,16 @@
 from MainMenu import *
 from Shop import *
+from Player import *
 
 #Variables
 run_main = MainMenu(1) #Create main menu object
-the_shop = Shop(1.00, 0.75, 0.30, 0.10) #Initialize shop costs
+player = Player() #Create player
+the_shop = Shop(1.00, 0.75, 0.30, 0.10, player) #Initialize shop
 
 
 def intro(): #Get player name and stand name
     #ADD INTRO MESSAGE HERE
+    print("Intro message here:")
     p_n = str(input("What is your name? "))
     while (p_n == ""): #Enter valid name
         p_n = str(input("Please enter your name: "))
